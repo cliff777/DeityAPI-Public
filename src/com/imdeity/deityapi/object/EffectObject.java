@@ -3,13 +3,24 @@ package com.imdeity.deityapi.object;
 import java.util.HashMap;
 import java.util.Random;
 
-import net.minecraft.server.EntityFireball;
-import net.minecraft.server.EntitySmallFireball;
+//Cliff777 start
+//import net.minecraft.server.EntityFireball;
+//import net.minecraft.server.EntitySmallFireball;
+import net.minecraft.server.v1_4_R1.EntitySmallFireball;
 
+//import org.bukkit.craftbukkit.CraftWorld;
+import org.bukkit.craftbukkit.v1_4_R1.CraftWorld;
+
+import org.bukkit.entity.Entity;
+import org.bukkit.util.Vector;
+//Cliff777 end
+
+import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.EntityEffect;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.CraftWorld;
+
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -180,9 +191,18 @@ public class EffectObject {
         for (int i = 0; i < 3; i++) {
             slopevector[i] /= linelength;
         }
-        EntityFireball entityFireball = new EntityFireball(world.getHandle(), originCoords[0], originCoords[1], originCoords[2],
-                slopevector[0] * linelength, slopevector[1] * linelength, slopevector[2] * linelength);
-        world.getHandle().addEntity(entityFireball);
+        
+        //Cliff777 start
+        
+        //EntityFireball entityFireball = new EntityFireball(world.getHandle(), originCoords[0], originCoords[1], originCoords[2],
+        //        slopevector[0] * linelength, slopevector[1] * linelength, slopevector[2] * linelength);
+        
+        Entity e = world.spawnEntity(new Location(Bukkit.getServer().getWorld(world.getName()), (double)originCoords[0], (double)originCoords[1], (double)originCoords[2]), EntityType.FIREBALL);
+        e.setVelocity(new Vector(slopevector[0] * linelength, slopevector[1] * linelength, slopevector[2] * linelength));
+        
+        //world.getHandle().addEntity(entityFireball);
+
+        //Cliff777 end 
     }
     
     /**

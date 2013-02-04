@@ -15,10 +15,8 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import com.imdeity.deityapi.api.DeityPlugin;
 import com.imdeity.deityapi.api.DeityRegistration;
 import com.imdeity.deityapi.cmds.QueryCommandHandler;
-import com.imdeity.deityapi.object.BanObject;
 import com.imdeity.deityapi.object.ChatObject;
 import com.imdeity.deityapi.object.DataObject;
-import com.imdeity.deityapi.object.DeityPermObject;
 import com.imdeity.deityapi.object.EconObject;
 import com.imdeity.deityapi.object.EditObject;
 import com.imdeity.deityapi.object.EffectObject;
@@ -26,7 +24,6 @@ import com.imdeity.deityapi.object.MobObject;
 import com.imdeity.deityapi.object.PermObject;
 import com.imdeity.deityapi.object.PlayerObject;
 import com.imdeity.deityapi.object.SecObject;
-import com.imdeity.deityapi.object.ServerObject;
 import com.imdeity.deityapi.object.UtilsObject;
 import com.imdeity.deityapi.utils.Metrics;
 import com.sk89q.worldedit.bukkit.WorldEditPlugin;
@@ -511,26 +508,35 @@ public class DeityAPI extends DeityPlugin implements Listener {
          * 
          * @return
          */
-        public ServerObject getServerAPI() {
-            return new ServerObject();
-        }
+        
+        //Cliff777 start
+        //public ServerObject getServerAPI() {
+        //    return new ServerObject();
+        //}
+        //Cliff777 end
         
         /**
          * For use on the ImDeity Kingdoms server only
          * 
          * @return
          */
-        public BanObject getBanAPI() {
-            return new BanObject();
-        }
+        
+        //Cliff777 start
+        //public BanObject getBanAPI() {
+        //    return new BanObject();
+        //}
+        //Cliff777 end
         
         /**
          * For use on the ImDeity Kingdoms server only
          * 
          * @return
          */
-        public DeityPermObject getDeityPermAPI() {
-            return new DeityPermObject();
-        }
+        
+        //Cliff777 start
+        //public DeityPermObject getDeityPermAPI() {
+        //    return new DeityPermObject();
+        //}
+        //Cliff777 end
     }
 }

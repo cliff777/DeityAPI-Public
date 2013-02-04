@@ -213,7 +213,7 @@ public class Metrics {
      * 
      * @return True if statistics measuring is running, otherwise false.
      */
-    public boolean start() {
+	public boolean start() {
         synchronized (optOutLock) {
             // Did we opt out?
             if (isOptOut()) { return false; }

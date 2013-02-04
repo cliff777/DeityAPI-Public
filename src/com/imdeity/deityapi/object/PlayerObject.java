@@ -2,13 +2,21 @@ package com.imdeity.deityapi.object;
 
 import java.util.ArrayList;
 
-import net.minecraft.server.Packet39AttachEntity;
+//Cliff777 start
+//import net.minecraft.server.Packet39AttachEntity;
+import net.minecraft.server.v1_4_R1.Packet39AttachEntity;
+//Cliff777 end
 
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
-import org.bukkit.craftbukkit.entity.CraftPlayer;
+
+//Cliff777 start
+//import org.bukkit.craftbukkit.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_4_R1.entity.CraftPlayer;
+//Cliff777 end
+
 import org.bukkit.entity.Ocelot;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Wolf;
@@ -233,14 +241,25 @@ public class PlayerObject {
         return false;
     }
     
+    //Cliff777 start
+    //public boolean sit(Player player) {
+    //    if (player.isOnline()) {
+    //        ((CraftPlayer) player).getHandle().netServerHandler.sendPacket(new Packet39AttachEntity(
+    //                ((CraftPlayer) player).getHandle(), ((CraftPlayer) player).getHandle()));
+    //        return true;
+    //    }
+    //    return false;
+    //}
     public boolean sit(Player player) {
-        if (player.isOnline()) {
-            ((CraftPlayer) player).getHandle().netServerHandler.sendPacket(new Packet39AttachEntity(
-                    ((CraftPlayer) player).getHandle(), ((CraftPlayer) player).getHandle()));
-            return true;
-        }
-        return false;
+    	if(player.isOnline()) {
+    		((CraftPlayer) player).getHandle().playerConnection.sendPacket(new Packet39AttachEntity(
+    				((CraftPlayer) player).getHandle(), ((CraftPlayer) player).getHandle()));
+    		return true;
+    	}
+    	return false;
     }
+    
+    //Cliff777 end
     
     /**
      * Teleports a player to the specified location
